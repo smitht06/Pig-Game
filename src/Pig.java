@@ -13,39 +13,48 @@ public class Pig {
         System.out.println("Enter the number to seed: ");
         int seed = scnr.nextInt();
         System.out.println("Welcome to the Pig game!");
-        while(choice != 's'){
-            System.out.println("Enter r to roll or s to stop.");
-            choice = scnr.next().charAt(0);
-            if(choice == 'r'){
-                int roll = random(seed);
-                System.out.println("You rolled a " + roll);
-                score += roll;
-                System.out.println("Your turn score is: " + roll + " your current score is " +userFinalScore+ "\nif you stop now your total score will be " + score);
-            }else if (choice == 's'){
-                userFinalScore = score;
-                System.out.println("Your final score is " + userFinalScore);
+        while(userFinalScore < scoreToWin || computerScore < scoreToWin){
+            System.out.println("Your Turn!");
+            while(choice != 's'){
+
+                System.out.println("Enter r to roll or s to stop.");
+                choice = scnr.next().charAt(0);
+                if(choice == 'r'){
+                    int roll = random(seed);
+                    System.out.println("You rolled a " + roll);
+                    score += roll;
+                    System.out.println("Your turn score is: " + roll + " your current score is " +userFinalScore+ "\nif you stop now your total score will be " + score);
+                    if(roll == 1){
+                        break;
+                    }
+                }else if (choice == 's'){
+                    userFinalScore = score;
+                    System.out.println("Your final score is " + userFinalScore);
+                }
+            }
+            if(userFinalScore < scoreToWin){
+                System.out.println("Computer's turn:");
+                while(computerScore < scoreToWin){
+                    int computerRoll = random(seed);
+                    System.out.println("Computer rolled: " + computerRoll);
+                    computerScore += computerRoll;
+                    if(computerRoll == 1){
+                        break;
+                    }
+                }
+                if(computerScore >= scoreToWin){
+                    System.out.println("computer holds.");
+                    System.out.println("computer wins!");
+                }
+            }else{
+                System.out.println("You win!");
             }
         }
-        if(userFinalScore < scoreToWin){
-            System.out.println("Computer's turn:");
-            while(computerScore < scoreToWin){
-                int computerRoll = random(seed);
-                System.out.println("Computer rolled: " + computerRoll);
-                computerScore += computerRoll;
-            }
-            if(computerScore >= scoreToWin){
-                System.out.println("computer holds.");
-                System.out.println("computer wins!");
-            }
-        }else{
-            System.out.println("You win!");
+    }
+        private static int random(int seed){
+            Random diceRoll = new Random();
+            int result = diceRoll.nextInt(6-1+1)+1;
+            diceRoll.setSeed(seed);
+            return result;
         }
-    }
-    //test comment
-    private static int random(int seed){
-        Random diceRoll = new Random();
-        int result = diceRoll.nextInt(6-1+1)+1;
-        diceRoll.setSeed(seed);
-        return result;
-    }
 }
