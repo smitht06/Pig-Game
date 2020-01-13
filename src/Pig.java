@@ -41,6 +41,7 @@ public class Pig {
             System.out.println("You win!");
         }
     }
+    //test comment
     private static int random(int seed){
         Random diceRoll = new Random();
         int result = diceRoll.nextInt(6-1+1)+1;
