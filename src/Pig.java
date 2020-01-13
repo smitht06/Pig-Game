@@ -25,7 +25,9 @@ public class Pig {
     }
 
     private static int random(int seed){
-        int diceRoll = (int)(seed * Math.random());
-        return diceRoll;
+        Random diceRoll = new Random();
+        int result = diceRoll.nextInt(7);
+        diceRoll.setSeed(seed);
+        return result;
     }
 }
