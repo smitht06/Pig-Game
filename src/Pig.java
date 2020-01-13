@@ -7,7 +7,9 @@ public class Pig {
         System.out.println("Welcome to the Pig game!");
         char choice = 'q';
         int score = 0;
-        int finalScore = 0;
+        int userFinalScore = 0;
+        int computerScore = 0;
+        int scoreToWin = 25;
         System.out.println("Enter the number to seed: ");
         int seed = scnr.nextInt();
         System.out.println("Welcome to the Pig game!");
@@ -18,11 +20,25 @@ public class Pig {
                 int roll = random(seed);
                 System.out.println("You rolled a " + roll);
                 score += roll;
-                System.out.println("Your turn score is: " + roll + " your current score is " +finalScore+ "\nif you stop now your total score will be " + score);
+                System.out.println("Your turn score is: " + roll + " your current score is " +userFinalScore+ "\nif you stop now your total score will be " + score);
             }else if (choice == 's'){
-                finalScore = score;
-                System.out.println("Your final score is " + finalScore);
+                userFinalScore = score;
+                System.out.println("Your final score is " + userFinalScore);
             }
+        }
+        if(userFinalScore < scoreToWin){
+            System.out.println("Computer's turn:");
+            while(computerScore < scoreToWin){
+                int computerRoll = random(seed);
+                System.out.println("Computer rolled: " + computerRoll);
+                computerScore += computerRoll;
+            }
+            if(computerScore >= scoreToWin){
+                System.out.println("computer holds.");
+                System.out.println("computer wins!");
+            }
+        }else{
+            System.out.println("You win!");
         }
 
 
