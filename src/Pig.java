@@ -40,13 +40,10 @@ public class Pig {
         }else{
             System.out.println("You win!");
         }
-
-
     }
-
     private static int random(int seed){
         Random diceRoll = new Random();
-        int result = diceRoll.nextInt(7);
+        int result = diceRoll.nextInt(6-1+1)+1;
         diceRoll.setSeed(seed);
         return result;
     }
