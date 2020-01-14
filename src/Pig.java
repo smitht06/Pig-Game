@@ -5,15 +5,27 @@ public class Pig {
     public static void main(String [] args){
         Scanner scnr = new Scanner(System.in);
         System.out.println("Welcome to the Pig game!");
-        char choice = 'q';
+        char choice;
         int userTurnScore = 0;
         int userTotalScore = 0;
         int computerTurnScore = 0;
         int computerTotalScore = 0;
-        int scoreToWin = 25;
-        System.out.println("Enter the number to seed: ");
-        int seed = scnr.nextInt();
+        int scoreToWin;
+        int seed;
+
+
+        System.out.println("Enter the number to seed, seed less than 0 will not seed: ");
+        seed = scnr.nextInt();
+        if(seed < 0){
+            seed = 0;
+        }
+
+
         System.out.println("Welcome to the Pig game!");
+        System.out.println("Enter score to win: ");
+        scoreToWin = scnr.nextInt();
+
+
         while(userTotalScore < scoreToWin || computerTotalScore < scoreToWin){
             System.out.println("Your Turn!");
             while(true){
@@ -55,9 +67,9 @@ public class Pig {
                     }
                     if (computerTurnScore + computerTotalScore >= scoreToWin){
                         computerTotalScore += computerTurnScore;
+                        System.out.println("Computer holds at: " + computerTotalScore);
                         break;
                     }
-
                 }
                 if(computerTotalScore >= scoreToWin){
                     System.out.println("computer wins!");
