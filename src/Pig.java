@@ -10,7 +10,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 //create pig class with main method
-//test
 public class Pig {
     public static void main(String [] args){
         //declare variables to hold scanner, scores and seed
