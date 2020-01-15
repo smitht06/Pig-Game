@@ -1,10 +1,12 @@
+//import random and scanner classes
 import java.util.Random;
 import java.util.Scanner;
 
+//create pig class with main method
 public class Pig {
     public static void main(String [] args){
+        //declare variables to hold scanner, scores and seed
         Scanner scnr = new Scanner(System.in);
-        System.out.println("Welcome to the Pig game!");
         char choice;
         int userTurnScore = 0;
         int userTotalScore = 0;
@@ -13,24 +15,27 @@ public class Pig {
         int scoreToWin;
         int seed;
 
-
+        //display welcome message and ask for seed
+        System.out.println("Welcome to the Pig game!");
         System.out.println("Enter the number to seed, seed less than 0 will not seed: ");
+        //store user entered seed and add if statment to set seed to 0 if user enters negative number
         seed = scnr.nextInt();
         if(seed < 0){
             seed = 0;
         }
 
-
-        System.out.println("Welcome to the Pig game!");
+        //prompt user for wining score and use variable to store integer entered
+        System.out.println("Let's play!");
         System.out.println("Enter score to win: ");
         scoreToWin = scnr.nextInt();
 
-
+        //while loop to break when computer or player reaches the total score to win
         while(userTotalScore < scoreToWin || computerTotalScore < scoreToWin){
             System.out.println("Your Turn!");
+            //players turn
             while(true){
-
-                System.out.println("Enter r to roll or s to stop.");
+                //enter r to roll and s to hold
+                System.out.println("Enter r to roll or s to hold.");
                 choice = scnr.next().charAt(0);
                 if(choice == 'r'){
                     int roll = random(seed);
@@ -41,7 +46,8 @@ public class Pig {
                         userTurnScore = userTurnScore-1;
                         break;
                     }
-                    System.out.println("Your current score is " +userTotalScore+ "\nif you stop now your total score will be " + userTurnScore);
+                    System.out.println("Your current score is " +userTotalScore+ "\nif you hold now your total score will be " + userTurnScore);
+                //total score only changes if player holds
                 }else if (choice == 's'){
                     userTotalScore = userTurnScore;
                     System.out.println("Your final score is " + userTotalScore);
