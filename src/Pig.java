@@ -25,7 +25,7 @@ public class Pig {
         //display welcome message and ask for seed
         System.out.println("Welcome to the Pig game!");
         System.out.println("Enter the number to seed, seed less than 0 will not seed: ");
-        //store user entered seed and add if statment to set seed to 0 if user enters negative number
+        //store user entered seed and add if statement to set seed to 0 if user enters negative number
         seed = scnr.nextInt();
         if(seed < 0){
             seed = 0;
