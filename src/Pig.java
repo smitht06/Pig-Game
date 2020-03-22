@@ -2,7 +2,6 @@
 * File: Pig.java
 * Author: Anthony Smith
 * Date: 1/15/2020
-* Course: CO 5007
 * Purpose: 
 * */
 //import random and scanner classes
